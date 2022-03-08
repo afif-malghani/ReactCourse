@@ -7,35 +7,15 @@ function App() {
       id: 0,
       title: "Credit Card debt",
       date: new Date(2022, 3, 1),
-      amount: 3699,
+      amount: 123456,
     },
     {
       id: 1,
-      title: "Fam debt",
+      title: "Dummy",
       date: new Date(2022, 3, 1),
-      amount: 50000,
-    },
-    {
-      id: 2,
-      title: "Appartment debt",
-      date: new Date(2022, 3, 1),
-      amount: 1360,
-    },
-    {
-      id: 3,
-      title: "Dinner",
-      date: new Date(2022, 3, 1),
-      amount: 370,
-    },
-
-    {
-      id: 4,
-      title: "Airlift",
-      date: new Date(2022, 3, 2),
-      amount: 498,
+      amount: 98765,
     },
   ];
-
   return (
     <div>
       <Card>Haha</Card>
