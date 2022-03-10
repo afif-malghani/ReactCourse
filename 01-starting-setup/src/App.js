@@ -1,5 +1,5 @@
-import Card from "./components/Card";
-import ExpenseList from "./components/ExpenseList";
+import Card from "./components/UI/Card";
+import ExpenseList from "./components/Expenses/ExpenseList";
 
 function App() {
   const expenses = [
@@ -18,7 +18,6 @@ function App() {
   ];
   return (
     <div>
-      <Card>Haha</Card>
       <ExpenseList list_={expenses} />
     </div>
   );
