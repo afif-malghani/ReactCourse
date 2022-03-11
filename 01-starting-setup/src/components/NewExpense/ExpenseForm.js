@@ -14,17 +14,32 @@ const ExpenseForm = () => {
 
   const titleChangeHandler = (event) => {
     // setEnteredTitle(event.target.value);
-    setUserInput({ ...userInput, enteredTitle: event.target.value });
+
+    // setUserInput({ ...userInput, enteredTitle: event.target.value });
+    // OR, Alternatively
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: event.target.value };
+    });
+    // Benifits of using function inside update function:
+    //      react guarentees that we get most recet snapshot of previous state
   };
 
   const amountChandeHandler = (event) => {
     // setEnteredAmount(event.target.value);
-    setUserInput({ ...userInput, enteredAmout: event.target.value });
+    // setUserInput({ ...userInput, enteredAmout: event.target.value });
+
+    setUserInput((prevState) => {
+      return { ...prevState, enteredAmout: event.target.value };
+    });
   };
 
   const dateChangeHandler = (event) => {
     // setEnteredDate(event.target.value);
-    setUserInput({ ...userInput, enteredDate: event.target.value });
+    // setUserInput({ ...userInput, enteredDate: event.target.value });
+
+    setUserInput((prevState) => {
+      return { ...prevState, enteredDate: event.target.value };
+    });
   };
 
   let today = new Date();
