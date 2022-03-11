@@ -1,5 +1,6 @@
 import Card from "./components/UI/Card";
 import ExpenseList from "./components/Expenses/ExpenseList";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
   const expenses = [
@@ -18,6 +19,7 @@ function App() {
   ];
   return (
     <div>
+      <NewExpense />
       <ExpenseList list_={expenses} />
     </div>
   );
