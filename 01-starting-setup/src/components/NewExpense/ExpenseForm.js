@@ -1,6 +1,10 @@
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
+  const titleChangeHandler = (event) => {
+    console.log(event.target.value);
+  };
+
   let today = new Date();
   today = today.toLocaleDateString();
   return (
@@ -8,7 +12,7 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new_expense__control">
           <label>Title</label>
-          <input type="text" />
+          <input type="text" onChange={titleChangeHandler} />
         </div>
         <div className="new_expense__control">
           <label>Amount</label>
