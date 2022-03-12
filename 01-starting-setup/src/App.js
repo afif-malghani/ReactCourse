@@ -17,9 +17,14 @@ function App() {
       amount: 98765,
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log(expenses);
+  };
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <ExpenseList list_={expenses} />
     </div>
   );
