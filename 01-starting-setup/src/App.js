@@ -35,7 +35,6 @@ function App() {
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      {console.log(expenses)}
       <ExpenseList list_={expenses} />
     </div>
   );

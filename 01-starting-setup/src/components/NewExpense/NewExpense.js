@@ -1,7 +1,10 @@
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
+import { useState } from "react";
 
 const NewExpense = (props) => {
+  const [formView, setFromView] = useState(false);
+
   const saveExpenseDataHandler = (enteredExpenseData) => {
     // const expenseData = { ...enteredExpenseData, id: Math.random().toString() };
     const expenseData = enteredExpenseData;
@@ -10,9 +13,22 @@ const NewExpense = (props) => {
     props.onAddExpense(expenseData);
   };
 
+  const makeVisible = () => {
+    setFromView(true);
+  };
+
+  const makeInvisible = () => {
+    setFromView(false);
+  };
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      {!formView && <button onClick={makeVisible}>Add Expense</button>}
+      {formView && (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseDataHandler}
+          onCancel={makeInvisible}
+        />
+      )}
     </div>
   );
 };

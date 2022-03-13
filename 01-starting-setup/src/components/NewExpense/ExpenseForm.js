@@ -54,12 +54,16 @@ const ExpenseForm = (props) => {
     console.log("from Expense Form:");
     console.log(expenseData);
     props.onSaveExpenseData(expenseData);
-
+    props.onCancel();
     setUserInput({
       title: "",
       amount: 0,
       date: "",
     });
+  };
+
+  const cancelSig = () => {
+    props.onCancel();
   };
 
   let now = new Date();
@@ -98,6 +102,7 @@ const ExpenseForm = (props) => {
       </div>
       <div className="new_expense__actions">
         <button type="submit">Add Expense</button>
+        <button onClick={cancelSig}>Cancel</button>
       </div>
     </form>
   );
