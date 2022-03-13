@@ -26,8 +26,9 @@ function App() {
     console.log("from App:");
     console.log(expense);
     setExpenses((prevExpenses) => {
-      console.log(prevExpenses);
-      return [expense, ...prevExpenses];
+      return [expense, ...prevExpenses].sort((a, b) =>
+        a.date > b.date ? 1 : -1
+      );
     });
   };
 
