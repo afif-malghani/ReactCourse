@@ -8,9 +8,9 @@ const ExpenseForm = (props) => {
   //   const [enteredDate, setEnteredDate] = useState("");
 
   const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmout: "",
-    enteredDate: "",
+    title: "",
+    amount: "",
+    date: "",
   });
 
   const titleChangeHandler = (event) => {
@@ -18,9 +18,11 @@ const ExpenseForm = (props) => {
 
     // setUserInput({ ...userInput, enteredTitle: event.target.value });
     // OR, Alternatively
+
     setUserInput((prevState) => {
-      return { ...prevState, enteredTitle: event.target.value };
+      return { ...prevState, title: event.target.value };
     });
+
     // Benifits of using function inside update function:
     //      react guarentees that we get most recet snapshot of previous state
   };
@@ -30,7 +32,7 @@ const ExpenseForm = (props) => {
     // setUserInput({ ...userInput, enteredAmout: event.target.value });
 
     setUserInput((prevState) => {
-      return { ...prevState, enteredAmout: event.target.value };
+      return { ...prevState, amount: parseFloat(event.target.value) };
     });
   };
 
@@ -39,7 +41,7 @@ const ExpenseForm = (props) => {
     // setUserInput({ ...userInput, enteredDate: event.target.value });
 
     setUserInput((prevState) => {
-      return { ...prevState, enteredDate: event.target.value };
+      return { ...prevState, date: event.target.value };
     });
   };
 
@@ -47,14 +49,16 @@ const ExpenseForm = (props) => {
     event.preventDefault();
     const expenseData = {
       ...userInput,
-      enteredDate: new Date(userInput.enteredDate),
+      date: new Date(userInput.date),
     };
+    console.log("from Expense Form:");
+    console.log(expenseData);
     props.onSaveExpenseData(expenseData);
 
     setUserInput({
-      enteredTitle: "",
-      enteredAmout: "",
-      enteredDate: "",
+      title: "",
+      amount: 0,
+      date: "",
     });
   };
 
@@ -67,7 +71,7 @@ const ExpenseForm = (props) => {
           <input
             type="text"
             placeholder="Title"
-            value={userInput.enteredTitle}
+            value={userInput.title}
             onChange={titleChangeHandler}
           />
         </div>
@@ -77,7 +81,7 @@ const ExpenseForm = (props) => {
             type="number"
             min="0.01"
             step="0.01"
-            value={userInput.enteredAmout}
+            value={userInput.amount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -87,7 +91,7 @@ const ExpenseForm = (props) => {
             type="date"
             min="2022-01-01"
             max={today}
-            value={userInput.enteredDate}
+            value={userInput.date}
             onChange={dateChangeHandler}
           />
         </div>
