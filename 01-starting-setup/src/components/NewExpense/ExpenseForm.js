@@ -87,7 +87,6 @@ const ExpenseForm = (props) => {
             type="date"
             min="2022-01-01"
             max={today}
-            defaultValue={today}
             value={userInput.enteredDate}
             onChange={dateChangeHandler}
           />

@@ -1,6 +1,7 @@
 import Card from "./components/UI/Card";
 import ExpenseList from "./components/Expenses/ExpenseList";
 import NewExpense from "./components/NewExpense/NewExpense";
+import ExpensesFilter from "./components/Expenses/ExpenseFilter";
 
 function App() {
   const expenses = [
@@ -19,6 +20,7 @@ function App() {
   ];
 
   const addExpenseHandler = (expense) => {
+    expenses.push(expense);
     console.log(expenses);
   };
 
